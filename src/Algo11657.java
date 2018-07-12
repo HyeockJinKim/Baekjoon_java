@@ -12,7 +12,7 @@ public class Algo11657 {
         int[][] g = new int[n+1][n+1];
         for (int i = 0; i < m; ++i) {
             line = br.readLine().split(" ");
-            g[]
+
         }
 
         br.close();
