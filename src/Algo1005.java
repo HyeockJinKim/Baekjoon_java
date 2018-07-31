@@ -40,6 +40,7 @@ public class Algo1005 {
             System.out.println(result[i]);
         }
     }
+
     private static int search(int x) {
         if (isSearched[x])
             return time[x];
