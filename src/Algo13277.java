@@ -2,61 +2,63 @@
 //import java.util.StringTokenizer;
 //
 //public class Algo13277 {
-//    private static long[] a, b;
+//    private static String a, b;
 //    public static void main(String[] args) throws IOException {
 //        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //        StringTokenizer tokenizer = new StringTokenizer(br.readLine());
-//        String temp = tokenizer.nextToken();
-//        int len = temp.length();
-//        a = new long[len/9+1];
-//        input(temp, len, a);
-//
-//        temp = tokenizer.nextToken();
-//        len = temp.length();
-//        b = new long[len/9+1];
-//        input(temp, len, b);
+//        a = tokenizer.nextToken();
+//        b = tokenizer.nextToken();
 //        br.close();
-//
-//        long[] mul = new long[a.length+b.length];
-//        for (int i = 0; i < mul.length; ++i) {
-//            mul[i] = -1;
-//        }
-//
-//        long limit = Long.valueOf("1000000000000000000");
-//        for (int i = 0; i < a.length; ++i) {
-//            for (int j = 0; j < b.length; ++j) {
-//                if (mul[i+j] == -1)
-//                    mul[i+j] = a[i] * b[j];
-//                else
-//                    mul[i+j] += a[i] * b[j];
-//                if (mul[i+j] >= limit) {
-//                    if (mul[i+j+1] == -1)
-//                        mul[i+j+1] = mul[i+j]/limit;
-//                    else {
-//                        mul[i + j + 1] += mul[i + j] / limit;
-//                    }
-//                    mul[i+j] %= limit;
-//                }
-//            }
-//        }
-//
-//        StringBuilder sb = new StringBuilder();
-//        for (int i = mul.length-1; i >= 0; --i) {
-//            if (mul[i] != -1)
-//                sb.append(mul[i]);
-//        }
+//        String result = mul(a, b, "");
 //        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-//        bw.write(String.format("%s", sb.toString()));
+//        bw.write(result);
 //        bw.close();
 //    }
 //
-//    private static void input(String temp, int len, long[] b) {
-//        int limit = len/9+1;
-//        for (int i = 0; i < limit; ++i) {
-//            int start, end;
-//            start = i*9 < len ? i*9 : len;
-//            end = (i+1)*9 < len ? (i+1) * 9 : len;
-//            b[i] = Long.parseLong(temp.substring(start, end));
+//    private static String plus(String a, String b) {
+//        long t1, t2;
+//        t1 = Long.parseLong(a);
+//        t2 = Long.parseLong(a);
+//        return String.valueOf(t1*t2);
+//    }
+//
+//    private static String mul(String a, String b, String plus) {
+//        if (!"".equals(plus))
+//            b = plus(b, plus);
+//        String t1, t2, t3, t4;
+//        int l1, l2;
+//        l1 = a.length();
+//        l2 = b.length();
+//
+//        if (l1 <= 9) {
+//            t1 = null;
+//            t2 = a;
+//        } else {
+//            int t = a.length()-9;
+//            t1 = a.substring(0, t);
+//            t2 = a.substring(t);
 //        }
+//        if (l2 < 9) {
+//            t3 = null;
+//            t4 = b;
+//        } else {
+//            int t = b.length()-9;
+//            t3 = b.substring(0, t);
+//            t4 = b.substring(t);
+//        }
+//        if (t1 != null && t3 != null) {
+//
+//        } else if (t1 != null) {
+//            String t = mul(t2, t4, plus);
+//            int len = t.length() > 9 ? t.length()-9 : 0;
+//            return mul(t1, t4, t.substring(0, len));
+//        } else if (t3 != null) {
+//            String t = mul(t2, t4, plus);
+//            int len = t.length() > 9 ? t.length()-9 : 0;
+//            return mul(t3, t2, t.substring(0, len));
+//        } else {
+//            return String.valueOf(Long.parseLong(t2) * Long.parseLong(t4));
+//        }
+//
 //    }
 //}
