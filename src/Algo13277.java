@@ -2,63 +2,72 @@
 //import java.util.StringTokenizer;
 //
 //public class Algo13277 {
-//    private static String a, b;
+//    private static long[] a, b;
 //    public static void main(String[] args) throws IOException {
 //        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //        StringTokenizer tokenizer = new StringTokenizer(br.readLine());
-//        a = tokenizer.nextToken();
-//        b = tokenizer.nextToken();
+//        String t1 = tokenizer.nextToken();
+//        String t2 = tokenizer.nextToken();
 //        br.close();
-//        String result = mul(a, b, "");
+//        String result = mul(0, a.length, 0, b, "");
 //        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 //        bw.write(result);
 //        bw.close();
 //    }
 //
-//    private static String plus(String a, String b) {
+//    private static String plus(int a, int b) {
+//        long t1, t2;
+//        t1 = Long.parseLong(a);
+//        t2 = Long.parseLong(a);
+//        return String.valueOf(t1*t2);
+//    }
+//    private static String sub(int a, int b) {
 //        long t1, t2;
 //        t1 = Long.parseLong(a);
 //        t2 = Long.parseLong(a);
 //        return String.valueOf(t1*t2);
 //    }
 //
-//    private static String mul(String a, String b, String plus) {
+//    private static String mul(int sa, int ea, int sb, int eb, String plus) {
 //        if (!"".equals(plus))
-//            b = plus(b, plus);
-//        String t1, t2, t3, t4;
+//            c = plus(c, plus);
 //        int l1, l2;
+//        if (a.length() < c.length()) {
+//            String temp = a;
+//            a = c;
+//            c = temp;
+//        }
 //        l1 = a.length();
-//        l2 = b.length();
+//        l2 = c.length();
 //
 //        if (l1 <= 9) {
-//            t1 = null;
-//            t2 = a;
+//            long t1, t2;
+//            t1 = Long.parseLong(a);
+//            t2 = Long.parseLong(c);
+//            return String.valueOf(t1*t2);
+//        } else if (l2 <= 9) {
+//            String bc, ac;
+//            String b = a.substring(l1-9);
+//            a = a.substring(0, l1-9);
+//            int tlen;
+//            bc = mul(b, c, plus);
+//            tlen = bc.length();
+//            ac = mul(a, c, bc.substring(tlen <= 9 ? 0 : tlen-9));
+//            return ac+bc;
 //        } else {
-//            int t = a.length()-9;
-//            t1 = a.substring(0, t);
-//            t2 = a.substring(t);
-//        }
-//        if (l2 < 9) {
-//            t3 = null;
-//            t4 = b;
-//        } else {
-//            int t = b.length()-9;
-//            t3 = b.substring(0, t);
-//            t4 = b.substring(t);
-//        }
-//        if (t1 != null && t3 != null) {
+//            String ac, bd, ab, cd, abcd;
+//            String b = a.substring(l1-9);
+//            String d = c.substring(l2-9);
+//            a = a.substring(0, l1-9);
+//            c = c.substring(0, l2-9);
+//            int tlen;
+//            bd = mul(b, d, "");
+//            ac = mul(a, c, "");
+//            ab = plus(a, b);
+//            cd = plus(c, d);
+//            abcd = mul(ab, cd, "");
 //
-//        } else if (t1 != null) {
-//            String t = mul(t2, t4, plus);
-//            int len = t.length() > 9 ? t.length()-9 : 0;
-//            return mul(t1, t4, t.substring(0, len));
-//        } else if (t3 != null) {
-//            String t = mul(t2, t4, plus);
-//            int len = t.length() > 9 ? t.length()-9 : 0;
-//            return mul(t3, t2, t.substring(0, len));
-//        } else {
-//            return String.valueOf(Long.parseLong(t2) * Long.parseLong(t4));
-//        }
 //
+//        }
 //    }
 //}
