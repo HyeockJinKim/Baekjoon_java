@@ -1,24 +1,24 @@
 import java.io.*;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Algo3079 {
+public class Algo13241 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer tokenizer = new StringTokenizer(br.readLine());
-        int n, m;
-        n = Integer.parseInt(tokenizer.nextToken());
-        m = Integer.parseInt(tokenizer.nextToken());
-        int[] t = new int[n];
-        for (int i = 0; i < n; ++i) {
-            t[i] = Integer.parseInt(br.readLine());
-        }
+        long a, b;
+        a = Integer.parseInt(tokenizer.nextToken());
+        b = Integer.parseInt(tokenizer.nextToken());
         br.close();
+        long mul = a * b;
 
-
+        while (a % b != 0) {
+            long t = a;
+            a = b;
+            b = t % b;
+        }
 
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
+        bw.write(String.valueOf(mul/b));
         bw.close();
     }
 }
