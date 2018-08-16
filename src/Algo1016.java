@@ -33,7 +33,7 @@ public class Algo1016 {
             }
         }
         int count = 0;
-        for (int i = 0; i <= len; ++i) 
+        for (int i = 0; i <= len; ++i)
             if (!dp2[i])
                 ++count;
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
