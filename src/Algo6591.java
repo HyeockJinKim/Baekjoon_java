@@ -1,4 +1,5 @@
 import java.io.*;
+import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 public class Algo6591 {
@@ -13,14 +14,16 @@ public class Algo6591 {
             if (n == 0) {
                 break;
             }
-            for (int i = 2; i < n; ++i) {
-                if (!check[i]) {
-                    for (int j = i*i; j < n; j += i) {
-                        check[j] = true;
-                    }
-                }
+            k = k <= n-k ? k : n-k;
+            BigInteger result = new BigInteger("1");
+            for (int i = n; i > n-k; --i) {
+                result = result.multiply(BigInteger.valueOf(i));
             }
-
+            for (int i = 2; i <= k; ++i) {
+                result = result.divide(BigInteger.valueOf(i));
+            }
+            bw.write(result.toString());
+            bw.newLine();
         }
         br.close();
         bw.close();
