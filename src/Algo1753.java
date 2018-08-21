@@ -10,22 +10,14 @@
 //        v = Integer.parseInt(tokenizer.nextToken());
 //        e = Integer.parseInt(tokenizer.nextToken());
 //        k = Integer.parseInt(br.readLine());
-//        ArrayList<ArrayList<>>
-//        int[][] g = new int[v+1][v+1];
-//        final int MAX_VALUE = 10000000;
-//        for (int i = 1; i <= v; ++i) {
-//            for (int j = 1; j <= v; ++j) {
-//                g[i][j] = MAX_VALUE;
-//            }
-//            g[i][i] = 0;
-//        }
+//        ArrayList<int[]> g = new ArrayList<>();
 //        for (int i = 0; i < e; ++i) {
 //            tokenizer = new StringTokenizer(br.readLine());
 //            int t1, t2 ,t3;
 //            t1 = Integer.parseInt(tokenizer.nextToken());
 //            t2 = Integer.parseInt(tokenizer.nextToken());
 //            t3 = Integer.parseInt(tokenizer.nextToken());
-//            g[t1][t2] = t3;
+//            g.add(new int[]{t1, t2, t3});
 //        }
 //
 //        for (int i = 1; i <= v; ++i) {
@@ -48,4 +40,5 @@
 //        }
 //        bw.close();
 //    }
+//    
 //}
