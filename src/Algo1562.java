@@ -12,12 +12,12 @@ public class Algo1562 {
             dp[i][0] = dp[i-1][1];
             dp[i][9] = dp[i-1][8];
             for (int j = 1; j < 9; ++j) {
-                dp[i][j] = dp[i-1][j-1] + dp[i-1][j+1];
+                dp[i][j] = (dp[i-1][j-1] + dp[i-1][j+1])%1000000000;
             }
         }
         int num = 0;
         for (int i = 0; i <= 9; ++i) {
-            num += dp[n][i];
+            num = (num+dp[n][i])%1000000000;
         }
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         bw.write(String.valueOf(num));
